@@ -7,7 +7,7 @@ public class DriverMain {
 public static void main(String[] args) {
 	
 	
-	ApplicationContext context = new GenericXmlApplicationContext("di.anno01.xml");
+	ApplicationContext context = new GenericXmlApplicationContext("di.anno02.xml");
 	
 	
 	//의존주입 전  : 기본생성자만 호출 Car()

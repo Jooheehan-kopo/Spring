@@ -1,30 +1,30 @@
-package di.anno02;
+package di.anno03;
 
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
-public class Car {
+@Component
+public class Car2 {
 	
-	
+	/*
 	@Resource
+	@Qualifier("kumhoTire") //하면 에러남
+	*/
+	//
+	@Resource(name ="hankookTire")
+	@Qualifier("kumhoTire")   //hankook이 먼저나옴 resource는 이름이 먼저임
 	private Tire tire; //의존관게발생.
 	
 	//기본생성자
-	public Car() {
+	public Car2() {
 		System.out.println("car()...");
 	}
 	
-	//tire형의 데이터
 
-//	@Resource 안됨
-	public Car(Tire tire) {
-		this.tire =tire;
-		System.out.println("Car(Tire)...");
-	}
-	
-	//setter [반드시 기본생성자 가지고 있어야함. 아님 오류남- 먼저호출되기에]
-//	@Resource
+	@Resource(name= "hankookTire")
 	public void setTire(Tire tire) {
 		this.tire = tire;
 		System.out.println("set tire..");
